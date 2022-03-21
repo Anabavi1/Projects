@@ -1,0 +1,40 @@
+1
+p1_machine_t3.txt bbbbba.a#b.bbbbbaaaaa 4000
+2
+p1_machine_t4.txt a.b#b.bbbbbaaaaa 4000
+3
+p1_machine_t3.txt bbbbbbbbaaa.aab#aa.aaabaaaaabbbbbb 8000
+4
+p1_machine_t3.txt a.baaaaaaabababab#b.bbbbbaaaaaaaaaababababab 10000
+5
+p1_machine_t3.txt aabababaababa.aabbabababa#babaab.bbbbb 3642
+6
+p1_machine_t3.txt aa.aababaaabbb#a.abbabababa 4000
+7
+p1_machine_t4.txt aa.aababaaabbb#aaaaa.abbababababbbbbbbba 40000
+8
+p1_machine_t3.txt aaaaaaaaa.aabababaabaaabbb#aaaaa.abbababababbbbbbbba 10000
+9
+p1_machine_t3.txt a.aab#a.a 10000
+10
+p1_machine_t3.txt a.a#babaabaabababbbbababa.bbbbbaaabaaabababaabababab 10500
+11
+p1_machine_t1.txt baaaaaaa,caaaaa 2000000
+12
+p1_machine_t2.txt cbba,b 20000
+13
+p1_machine_t1.txt babab, 50000
+14
+p1_machine_t1.txt ccabab,ba 300000
+15
+p1_machine_t1.txt ccccccc,aa 556090
+16
+p1_machine_t1.txt aaaabaa,c 300000
+17
+p1_machine_t2.txt babab,bc 100000
+18
+p1_machine_t1.txt babab,bccc 28147
+19
+p1_machine_t1.txt aa,c 120
+20
+p1_machine_t1.txt aa,c 107
