@@ -12,16 +12,6 @@ class nabavian_p1{
       ArrayList<Path> paths = new ArrayList<Path>();
       boolean repeat=true;
 
-
-      // StringBuilder test2=new StringBuilder("abcdefg");
-      // // int pos=test2.length();
-      // test2.append(" ");
-      // System.out.println(test2);
-      // System.out.println(test2.length());
-      // test2.append(" ");
-      // System.out.println(test2);
-      // System.out.println(test2.length());
-      
       while (scanner.hasNextLine()) {
 
         String [] data = scanner.nextLine().split("\\s+");
@@ -82,10 +72,6 @@ class nabavian_p1{
       StringBuilder input= new StringBuilder(args[1]);
       
       int max= Integer.parseInt(args[2]);
-      // input.append(" ");
-      // for(int i=0; i<max; i++){
-      //   input.append(" ");
-      // }
       int iteration=0;
       int position=0;
       State currentstate= new State(0,0,0);
@@ -102,29 +88,27 @@ class nabavian_p1{
       for(Path x: paths ){
         if(x.getQ()==currentstate.getCurrent() && x.getA().equals(s)){
           currentpath=x;
-          // paths.remove(x);
           break;
         }
       }
       
-
+      String finalstatetype="quit";
       while(iteration<max){
 
-        
-        System.out.println(input);
-        System.out.println(position);
-        System.out.println(iteration);
-        System.out.println(currentpath.getQ() + " " + currentpath.getA() + " " + currentpath.getR() + " " + currentpath.getB() + " " + currentpath.getX());
+        // ------Turn on to follow transitions------
+        // System.out.println("TRANSITION " +iteration + "-------------");
+        // System.out.println("INPUT STRING: " +input);
+        // System.out.println("POSITION:     " + position);
+        // System.out.println("PATH:         " + currentpath.getQ() + " " + currentpath.getA() + " " + currentpath.getR() + " " + currentpath.getB() + " " + currentpath.getX());
         
         
         if(currentstate.getType()==2){
-          System.out.println(input + " " + " accept");
+          finalstatetype= "accept";
           break;
         }
 
         if(currentstate.getType()==3){
-          System.out.println(input + " " + " reject");
-          
+          finalstatetype= "reject";
           break;
         }
 
@@ -140,7 +124,7 @@ class nabavian_p1{
           if(position>=input.length()){
 
             if(currentpath.getB().equals("_")){
-              input.append("_");
+              //input.append("_");
             }else{
               input.append(currentpath.getB());
             }
@@ -152,26 +136,10 @@ class nabavian_p1{
           }
         }
         
-        
-        
-        // if(s.equals(currentpath.getA())){
-        //   if(position>=input.length()){
-        //     input.append(" ");
-        //   }else{
-        //     if(currentpath.getB().equals("_")){
-        //       input.setCharAt(position, ' ');
-        //     }else{
-        //       input.setCharAt(position, currentpath.getB().charAt(0));
-        //     }
-            
-        //   }
-        // }
 
         if(currentpath.getX().equals("L")){
-          // && (position!=0)
           position--; 
         }else if(currentpath.getX().equals("R")  ){
-          //&& position != input.length()-1
           position++;
         }else if(currentpath.getX().equals("S")){
           
@@ -205,16 +173,28 @@ class nabavian_p1{
       }
       
       if(iteration >= max){
-        System.out.println(input + " quit");
+        finalstatetype= "quit";
+
       }
 
 
-      
+      if(finalstatetype.equals("reject") || finalstatetype.equals("accept")){
+        if(currentpath.getX().equals("L")){
+          position--; 
+        }else if(currentpath.getX().equals("R")  ){
+          position++;
+        }else if(currentpath.getX().equals("S")){
+          
+        }
+      }
 
+      String fin=input.substring(position, input.length());
 
-      // for(int i=0; i<machine.size(); i++){
-      //   System.out.println(machine.get(i).getCurrent()+ " " + machine.get(i).getType() + " " + machine.get(i).getNext());
-      // }
+      fin=fin.replaceAll("_", "");
+
+      System.out.println(position);
+      System.out.println(fin + " " + finalstatetype);
+
 
       scanner.close();
     } catch (FileNotFoundException e) {

@@ -7,11 +7,6 @@ public class Path {
 
     public Path(int q, String a, int r, String b, String x){
         this.q=q;
-        // if(a.equals("_")){
-        //     this.a=" ";
-        // }else{
-        //     this.a=a;
-        // }
         this.a=a;
         this.r=r;
         this.b=b;
